@@ -10,7 +10,9 @@
 
 Console.WriteLine("Enter the address of the element ->");
 int address1 = Convert.ToInt32(Console.ReadLine());
+address1 -= 1;
 int address2 = Convert.ToInt32(Console.ReadLine());
+address2 -= 1;
 
 int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
 {
@@ -34,7 +36,7 @@ void PrintMatrix(int[,] matrix)
         Console.Write("[");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],4}, ");
+            if (j < matrix.GetLength(1)) Console.Write($"{matrix[i, j],4}, ");
             else Console.Write($"{matrix[i, j],4}");
         }
         Console.WriteLine("]");
@@ -46,7 +48,7 @@ PrintMatrix(array2D);
 
 void OutputElement(int[,] matrix)
 {
-    if (address1 > matrix.GetLength(0) && address2 > matrix.GetLength(1)) Console.WriteLine("There is no such element in the array");
+    if (address1 > matrix.GetLength(1) && address2 > matrix.GetLength(0)) Console.WriteLine("An element with this address was not found in this array");
     else Console.WriteLine((array2D[address1, address2]));
 }
 
